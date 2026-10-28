@@ -1,1 +1,2 @@
 packages/*.exe filter=lfs diff=lfs merge=lfs -text
+release/** filter=lfs diff=lfs merge=lfs -text
