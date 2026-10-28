@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">分项记账</string>
+    <string name="title_activity_main">分项记账</string>
+    <string name="package_name">com.fxtool.app</string>
+    <string name="custom_url_scheme">com.fxtool.app</string>
+</resources>

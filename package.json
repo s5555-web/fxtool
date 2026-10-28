@@ -1,0 +1,44 @@
+{
+  "name": "fxtool",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "test": "node --test src/parser.test.js",
+    "desktop": "npm run build && electron .",
+    "pack:win": "npm run build && electron-builder --win portable --x64",
+    "android:sync": "npm run build && cap sync android"
+  },
+  "dependencies": {
+    "vue": "3.5.44",
+    "@capacitor/core": "latest",
+    "@capacitor/android": "latest"
+  },
+  "devDependencies": {
+    "vite": "8.3.5",
+    "@vitejs/plugin-vue": "latest",
+    "electron": "latest",
+    "electron-builder": "latest",
+    "@capacitor/cli": "latest"
+  },
+  "build": {
+    "appId": "com.fxtool.app",
+    "productName": "分项记账",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "portable"
+    }
+  },
+  "description": "离线本地分项记账工具",
+  "author": "FXTool"
+}
