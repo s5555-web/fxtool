@@ -1,6 +1,6 @@
 # 分项记账 FXTool
 
-Vue 3.5 + Vite 8 单机记账工具。浏览器版、Windows Electron 免安装版、Android Capacitor APK 共用同一套界面，离线安装包不需要连接服务器。
+Vue 3.5 + Vite 8 单机记账工具。浏览器版、Windows Electron 免安装版、Android WebView APK 共用同一套界面，离线安装包不需要连接服务器。
 
 ## 使用
 
@@ -39,3 +39,14 @@ APK 位于 `android/app/build/outputs/apk/debug/app-debug.apk`。这是可直接
 ## 部署
 
 将 `dist/` 上传到 Nginx 静态目录即可。808 只提供静态文件，所有记录仍在访问者本机保存。服务器目录 `/opt/fxtool/public`，源码目录 `/opt/fxtool/source`，旧 808 配置备份 `/opt/fxtool/backups/lingozi.before-fxtool`。
+
+### 使用现有 SDK 35 快速构建
+
+无需 Gradle 或在线依赖，使用原生 WebView 容器加载内置 Vue 资源；本地 HTTPS 虚拟地址由容器拦截，应用无需联网权限。支持原生文件选择与 JSON 导出。
+
+```sh
+npm run build
+ANDROID_HOME=/path/to/android-sdk bash scripts/build-android-offline.sh
+```
+
+要求 JDK 17+、Android SDK platform 35、build-tools 35.0.0。输出 `release/fxtool-android.apk`（调试签名）。`android/` 另保留 Capacitor 方案供后续扩展。
