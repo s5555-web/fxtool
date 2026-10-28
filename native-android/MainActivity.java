@@ -14,6 +14,7 @@ public class MainActivity extends Activity {
  @Override public void onCreate(Bundle state){
   super.onCreate(state);getWindow().setStatusBarColor(0xff176c56);getWindow().setNavigationBarColor(0xfff5f7f6);
   web=new WebView(this);setContentView(web);
+  web.setOnApplyWindowInsetsListener((view,insets)->{view.setPadding(insets.getSystemWindowInsetLeft(),insets.getSystemWindowInsetTop(),insets.getSystemWindowInsetRight(),insets.getSystemWindowInsetBottom());return insets;});
   web.getSettings().setJavaScriptEnabled(true);web.getSettings().setDomStorageEnabled(true);
   web.getSettings().setAllowFileAccess(false);web.getSettings().setAllowContentAccess(true);
   web.addJavascriptInterface(new Object(){@JavascriptInterface public void saveJson(String json){pendingBackup=json;runOnUiThread(()->{Intent i=new Intent(Intent.ACTION_CREATE_DOCUMENT);i.setType("application/json");i.addCategory(Intent.CATEGORY_OPENABLE);i.putExtra(Intent.EXTRA_TITLE,"fxtool-backup.json");startActivityForResult(i,12);});}},"AndroidBackup");
