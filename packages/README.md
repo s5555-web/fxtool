@@ -1,4 +1,4 @@
-# 离线安装包
+# 离线安装包 · 1.1.0
 
 - `fxtool-windows-x64.exe`：Windows x64 免安装程序，双击运行。使用 Git LFS 保存完整二进制文件。
 - `fxtool-android.apk`：Android 7.0 及以上离线安装包，调试签名。
