@@ -8,7 +8,7 @@ build="release/android-build"
 mkdir -p "$build/classes" "$build/dex" "$build/assets/public"
 cp -R dist/. "$build/assets/public/"
 "$tools/aapt2" compile --dir native-android/res -o "$build/resources.zip"
-"$tools/aapt2" link -o "$build/base.apk" -I "$platform" --manifest native-android/AndroidManifest.xml -A "$build/assets" -R "$build/resources.zip"
+"$tools/aapt2" link -o "$build/base.apk" -I "$platform" --manifest native-android/AndroidManifest.xml -A "$build/assets" "$build/resources.zip"
 javac -source 8 -target 8 -classpath "$platform" -d "$build/classes" native-android/MainActivity.java
 find "$build/classes" -name '*.class' > "$build/classes.list"
 "$tools/d8" --lib "$platform" --min-api 24 --output "$build/dex" @"$build/classes.list"
