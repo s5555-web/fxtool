@@ -14,7 +14,7 @@ if errorlevel 1 (
   pause
   exit /b 1
 )
-powershell.exe -NoProfile -Command "if ((Get-FileHash -LiteralPath './fxtool-windows-x64.exe' -Algorithm SHA256).Hash -ne 'F792322DFE9A5CDCAFBCB1641208E25CF530DED922DB8BE4A95908EF8A26B7B8') { Write-Error 'Checksum failed. Download the complete ZIP again.'; exit 1 }"
+powershell.exe -NoProfile -Command "if ((Get-FileHash -LiteralPath './fxtool-windows-x64.exe' -Algorithm SHA256).Hash -ne '40B06A6998947CDEC0490372A542661AFFD008122D2625430EEA75681B2C3FDF') { Write-Error 'Checksum failed. Download the complete ZIP again.'; exit 1 }"
 if errorlevel 1 (
   echo Verification failed. Do not run the generated EXE.
   pause

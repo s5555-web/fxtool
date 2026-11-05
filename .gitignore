@@ -4,3 +4,5 @@ android/local.properties
 android/**/build/
 .DS_Store
 *.log
+release/android-build/
+release/*.idsig
